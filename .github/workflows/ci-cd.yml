@@ -3,16 +3,13 @@ name: CI/CD
 on:
   push:
     branches:
-      - main  # Adjust the branch name if needed
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: cypress/run@v4
-
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
@@ -21,5 +18,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Checkout code
+      uses: cypress/run@v4
+
     - name: Run Cypress tests
-      run: npm run test:e2e
+      run: npx cypress run

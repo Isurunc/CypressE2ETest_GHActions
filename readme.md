@@ -21,11 +21,8 @@ This suite has used v13.0.0 using `npm install cypress@13.0.0`
 
 E2ETEST
 └── cypress
-
     └── e2e
-
         └── daftSearch.ts
-
     └── cypress.config.ts
 
 

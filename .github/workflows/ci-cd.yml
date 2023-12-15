@@ -14,12 +14,24 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20' 
+
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: list
-      run: ls -R
+
+    - name: Cache Cypress binary
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.cache/Cypress
+        key: cypress-${{ runner.os }}-${{ hashFiles('**/*.json') }}
+        restore-keys: |
+          cypress-${{ runner.os }}-
+
     - name: Install dependencies
       run: npm install
 
     - name: Run Cypress tests
-      run: npx cypress run
+      run: |
+        npx cypress install
+        npx cypress run
+      working-directory: .

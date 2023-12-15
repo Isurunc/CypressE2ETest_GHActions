@@ -1,0 +1,22 @@
+# .gitignore
+
+# Node modules
+node_modules/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# TypeScript
+dist/
+*.tsbuildinfo
+
+# IDEs and editors
+/.vscode
+/.idea
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db

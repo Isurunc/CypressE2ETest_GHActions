@@ -31,6 +31,15 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install Percy CLI
+      run: npm install -D @percy/cli
+
+    - name: Set Percy credentials (securely)
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      run: |
+        percy config set --api --token $PERCY_TOKEN  # Store token in Percy's config
+
     - name: Run Cypress tests
       run: |
         # Check if Cypress binary is already installed in cache
@@ -41,3 +50,9 @@ jobs:
           npx cypress run
         fi
       working-directory: .
+
+    - name: Run Percy snapshot validation
+      run: |
+        npx percy run \
+          --spec cypress/e2e/**/*.ts \  # Adjust this path based on your test file location
+          --percy-config=.percy.config.js  # Specify your custom Percy config if needed

@@ -14,13 +14,12 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20' 
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: list
       run: ls -R
     - name: Install dependencies
       run: npm install
-
-    - name: Checkout code
-      uses: actions/checkout@v2
 
     - name: Run Cypress tests
       run: npx cypress run

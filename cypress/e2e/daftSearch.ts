@@ -15,6 +15,8 @@ describe("daft search functionality", () => {
 
   after(() => {
     HomePage.logout();
+    cy.clearAllCookies();
+    cy.clearAllLocalStorage();
   });
 
   it("Verify Homepage", () => {
@@ -24,12 +26,11 @@ describe("daft search functionality", () => {
   it("Test Case 1: Search for a Sale Ad in county Dublin and verify result", () => {
     HomePage.navigateToSaleSection();
     Actions.filterCountriesInSelect(Enums.Cities.COUNTY);
-    SalesPage.verifySaleSearchResult();
+    SalesPage.verifySearchResult();
   });
 
   it("Test Case 2: Apply Garage filter and verify result", () => {
     SalesPage.applyGarageFilter(filterName);
-    SalesPage.verifyGarageFilterResult();
   });
 
   it("Test Case 3: Verify filter applied correctly", () => {

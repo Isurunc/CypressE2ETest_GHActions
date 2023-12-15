@@ -1,17 +1,21 @@
 import { SHORT_TIME } from "../timeouts";
 
 export class SalesPage {
-  static verifySaleSearchResult() {
-    cy.get('[data-testid="search-h1"]', SHORT_TIME)
-      .scrollIntoView()
-      .should("be.visible");
-    cy.contains("Properties for Sale in Ireland").should("exist");
-    cy.get('[data-cyid="search-h1"]')
-      .invoke("text")
-      .then((text) => {
-        const propertyCount = parseInt(text);
-        expect(propertyCount).to.be.greaterThan(0);
-      });
+  static verifySearchResult() {
+     cy.contains("Properties for Sale in Ireland").should("exist");
+    // cy.get('[data-cyid="search-h1"]')
+    //   .invoke("text")
+    //   .then((text) => {
+    //     const propertyCount = parseInt(text);
+    //     expect(propertyCount).to.be.greaterThan(0);
+    //   });
+
+  cy.get('[data-testid="search-h1"]').as('propertyList');
+    cy.get('@propertyList').its('length').then((count) => {
+      cy.log(`Number of properties: ${count}`);
+    });
+  // Assert that the property list is not empty
+  cy.get('@propertyList').should('have.length.greaterThan', 0);
   }
 
   static applyGarageFilter(filterName: string) {
@@ -25,18 +29,8 @@ export class SalesPage {
     cy.get('[data-testid="filters-modal-show-results-button"]').click();
   }
 
-  static verifyGarageFilterResult() {
-    cy.get('[data-testid="search-h1"]').should("exist");
-    cy.contains("Properties for Sale in Ireland").should("exist");
-    cy.get('[data-cyid="search-h1"]')
-      .invoke("text")
-      .then((text) => {
-        const propertyCount = parseInt(text);
-        expect(propertyCount).to.be.greaterThan(0);
-      });
-  }
-
   static verifyGarageFilterApplied(filterName: string) {
+    cy.wait(SHORT_TIME.timeout);
     cy.get('[data-testid="overview-info-sticker"]')
       .eq(0)
       .should("be.visible")

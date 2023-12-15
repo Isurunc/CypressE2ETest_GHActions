@@ -19,6 +19,7 @@ This suite has used v13.0.0 using `npm install cypress@13.0.0`
 ## Notes
 - I have registered a gmail user and completed the scenario as a registered user
 - Followed page object design pattern
-
+- CI/CD pipeline is setup inside same repo using GitHub Actions which runs on each push. You can navigate to
+"Actions" tab and observe it.
 
 

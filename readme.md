@@ -16,6 +16,12 @@ This suite has used v13.0.0 using `npm install cypress@13.0.0`
 4. Open Cypress: npx cypress open
 5. In the Cypress Test Runner, click on the test file (daftSearch.ts) to run.
 
+## Notes
+- I have registered a Gmail user and completed the scenario as a registered user
+- Followed page object design pattern
+- CI/CD pipeline is set up inside same repo using GitHub Actions which runs on each push. You can navigate to
+"Actions" tab and observe it.
+
 
 ## Project Structure
 
@@ -29,10 +35,6 @@ E2ETEST
 
 
 
-## Notes
-- I have registered a Gmail user and completed the scenario as a registered user
-- Followed page object design pattern
-- CI/CD pipeline is set up inside same repo using GitHub Actions which runs on each push. You can navigate to
-"Actions" tab and observe it.
+
 
 

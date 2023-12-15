@@ -31,6 +31,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Install ts-node
+      run: npm install --save-dev ts-node
+
     - name: Run Cypress tests
       run: |
         # Check if Cypress binary is already installed in cache

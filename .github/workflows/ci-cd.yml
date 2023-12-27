@@ -9,10 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
-      CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
-
     steps:
     - name: Setup Node.js
       uses: actions/setup-node@v3

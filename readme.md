@@ -12,9 +12,9 @@ This suite has used v13.0.0 using `npm install cypress@13.0.0`
 
 1. Clone this repository:
    git clone <repository-url>
-2. Navigate to the project directory cd <project-directory>
-3. Install dependencies: npm install
-4. Open Cypress: npx cypress open
+2. Navigate to the project directory `cd <project-directory>`
+3. Install dependencies: `npm install`
+4. Open Cypress: `npx cypress open`
 5. In the Cypress Test Runner, click on the test file (daftSearch.ts) to run.
 
 ## Notes

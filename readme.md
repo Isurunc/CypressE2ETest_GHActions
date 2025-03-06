@@ -23,7 +23,6 @@ This suite has used v13.0.0 using `npm install cypress@13.0.0`
 - CI/CD pipeline is set up inside same repo using GitHub Actions which runs on each push. You can navigate to
 "Actions" tab and observe it.
 
-
 ## Project Structure
 
 ```
